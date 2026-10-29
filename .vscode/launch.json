@@ -1,0 +1,64 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Reproduce Results.pdf Benchmark",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/reproduce_pdf_results.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Train & Evaluate All Models (CLI)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "args": ["train", "--save"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Launch Interactive Web Dashboard",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "args": ["launch-web"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Run Automated Tests (pytest)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["tests", "-v"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Run Standalone Logistic Regression",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/Predicting-Online-Shoppers-Purchasing-Intention-main/LogisticRegression.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Run Standalone Random Forest",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/Predicting-Online-Shoppers-Purchasing-Intention-main/RandomForest.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Run Standalone XGBoost",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/Predicting-Online-Shoppers-Purchasing-Intention-main/XGBoost.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

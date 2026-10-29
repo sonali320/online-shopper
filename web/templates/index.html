@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predicting Online Shoppers Purchasing Intention with Machine Learning. Live prediction dashboard and Results.pdf benchmark comparison.">
+    <title>Online Shoppers Purchasing Intention | ML Intelligence Platform</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="background-glow top-left"></div>
+    <div class="background-glow bottom-right"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="brand-badge">
+                    <span class="status-indicator"></span>
+                    <span>ML Production System • v1.0.0</span>
+                </div>
+                <h1 class="main-title">Online Shoppers Purchasing Intention</h1>
+                <p class="subtitle">
+                    Real-time browsing session prediction and comparative benchmarks from 
+                    <span class="tag-highlight">Results.pdf</span> (UCI Dataset • 12,330 Sessions).
+                </p>
+            </div>
+            <div class="header-actions">
+                <a href="#simulator-section" class="btn btn-primary" id="btn-jump-simulator">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    Live Session Simulator
+                </a>
+            </div>
+        </header>
+
+        <!-- Benchmark Metrics Section from Results.pdf -->
+        <section class="section-card benchmark-section" id="benchmark-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Model Evaluation & Benchmark Comparison (Results.pdf)</h2>
+                    <p class="section-desc">Comparison of the three top-feature tuned machine learning models trained on 8,631 records and tested on 3,699 sessions.</p>
+                </div>
+                <span class="badge badge-accent">Ground Truth: Results.pdf</span>
+            </div>
+
+            <div class="model-cards-grid">
+                <!-- Random Forest Card (Best Overall) -->
+                <div class="model-card featured-card" id="card-random-forest">
+                    <div class="card-badge-top">Top Overall Accuracy & Specificity</div>
+                    <div class="card-header">
+                        <div class="model-icon rf-icon">🌲</div>
+                        <div>
+                            <h3 class="model-name">Random Forest</h3>
+                            <span class="model-tag">Tuned Top Features</span>
+                        </div>
+                    </div>
+                    <div class="metric-highlight">
+                        <span class="metric-big">89.19%</span>
+                        <span class="metric-label">Overall Accuracy</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="m-val highlight-green">96.10%</span>
+                            <span class="m-label">Specificity (TNR)</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">55.00%</span>
+                            <span class="m-label">Sensitivity (TPR)</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val highlight-blue">90.56%</span>
+                            <span class="m-label">5-Fold CV Mean</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">±0.34%</span>
+                            <span class="m-label">CV Stability (Std)</span>
+                        </div>
+                    </div>
+                    <div class="confusion-pill">
+                        <span>TP: <b>342</b></span> • <span>TN: <b>2957</b></span> • <span>FP: <b>120</b></span> • <span>FN: <b>280</b></span>
+                    </div>
+                </div>
+
+                <!-- XGBoost Card (Best Sensitivity) -->
+                <div class="model-card" id="card-xgboost">
+                    <div class="card-badge-top-subtle">Top Sensitivity / Capture Rate</div>
+                    <div class="card-header">
+                        <div class="model-icon xgb-icon">⚡</div>
+                        <div>
+                            <h3 class="model-name">XGBoost</h3>
+                            <span class="model-tag">Tuned Top Features</span>
+                        </div>
+                    </div>
+                    <div class="metric-highlight">
+                        <span class="metric-big highlight-accent">80.23%</span>
+                        <span class="metric-label">Sensitivity (Max Purchases Captured)</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="m-val">87.00%</span>
+                            <span class="m-label">Overall Accuracy</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">88.37%</span>
+                            <span class="m-label">Specificity (TNR)</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">87.70%</span>
+                            <span class="m-label">5-Fold CV Mean</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">±0.58%</span>
+                            <span class="m-label">CV Stability (Std)</span>
+                        </div>
+                    </div>
+                    <div class="confusion-pill">
+                        <span>TP: <b>499</b></span> • <span>TN: <b>2719</b></span> • <span>FP: <b>358</b></span> • <span>FN: <b>123</b></span>
+                    </div>
+                </div>
+
+                <!-- Logistic Regression Card -->
+                <div class="model-card" id="card-logistic-regression">
+                    <div class="card-badge-top-subtle">High Interpretability Baseline</div>
+                    <div class="card-header">
+                        <div class="model-icon lr-icon">📈</div>
+                        <div>
+                            <h3 class="model-name">Logistic Regression</h3>
+                            <span class="model-tag">PowerTransformed + OneHot</span>
+                        </div>
+                    </div>
+                    <div class="metric-highlight">
+                        <span class="metric-big">87.08%</span>
+                        <span class="metric-label">Overall Accuracy</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="m-val">79.26%</span>
+                            <span class="m-label">Sensitivity (TPR)</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">88.66%</span>
+                            <span class="m-label">Specificity (TNR)</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">87.60%</span>
+                            <span class="m-label">5-Fold CV Mean</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">±0.52%</span>
+                            <span class="m-label">CV Stability (Std)</span>
+                        </div>
+                    </div>
+                    <div class="confusion-pill">
+                        <span>TP: <b>493</b></span> • <span>TN: <b>2728</b></span> • <span>FP: <b>349</b></span> • <span>FN: <b>129</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insights Banner -->
+            <div class="insights-banner">
+                <div class="insight-item">
+                    <span class="insight-icon">🎯</span>
+                    <div>
+                        <strong>Business Tradeoff:</strong>
+                        <span>Random Forest minimizes false alarms (only 120 false positives), whereas XGBoost captures 80.23% of all purchasers (missing only 123).</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Session Simulator -->
+        <section class="section-card simulator-section" id="simulator-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Interactive Shopper Session Simulator</h2>
+                    <p class="section-desc">Simulate an online shopping visitor session to predict whether they will generate revenue.</p>
+                </div>
+                <div class="preset-group">
+                    <span class="preset-label">Load Presets:</span>
+                    <button type="button" class="btn-preset" id="preset-high-intent">🔥 High-Intent Buyer</button>
+                    <button type="button" class="btn-preset" id="preset-casual">👀 Window Shopper</button>
+                    <button type="button" class="btn-preset" id="preset-bounce">⚡ High Bounce Visitor</button>
+                </div>
+            </div>
+
+            <form id="prediction-form" class="simulator-layout">
+                <!-- Form Inputs -->
+                <div class="form-inputs-container">
+                    <!-- Model Selection -->
+                    <div class="form-group-full">
+                        <label for="select-model" class="input-label">Select Inference Model Engine</label>
+                        <select id="select-model" class="custom-select">
+                            <option value="Random Forest" selected>Random Forest (Recommended - 89.19% Overall Accuracy & 96.10% Specificity)</option>
+                            <option value="XGBoost">XGBoost (80.23% Sensitivity - Maximizes Captured Purchasers)</option>
+                            <option value="Logistic Regression">Logistic Regression (87.08% Accuracy - PowerTransformed Linear)</option>
+                        </select>
+                    </div>
+
+                    <!-- Row 1: High Predictive Features (PageValues, ExitRates, BounceRates) -->
+                    <div class="inputs-row three-cols">
+                        <div class="form-group">
+                            <label for="input-page-values" class="input-label">
+                                Page Values
+                                <span class="help-tooltip" title="Average value of the page visited by the user before completing a transaction (Top predictive feature).">ℹ️</span>
+                            </label>
+                            <input type="number" id="input-page-values" step="0.1" min="0" max="400" value="53.8" class="custom-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-exit-rates" class="input-label">
+                                Exit Rate
+                                <span class="help-tooltip" title="Percentage of visitors who left the site from that page.">ℹ️</span>
+                            </label>
+                            <input type="number" id="input-exit-rates" step="0.001" min="0" max="1" value="0.012" class="custom-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-bounce-rates" class="input-label">
+                                Bounce Rate
+                                <span class="help-tooltip" title="Percentage of visitors who enter the site and leave without any trigger.">ℹ️</span>
+                            </label>
+                            <input type="number" id="input-bounce-rates" step="0.001" min="0" max="1" value="0.005" class="custom-input" required>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Product Related Pages & Duration -->
+                    <div class="inputs-row two-cols">
+                        <div class="form-group">
+                            <label for="input-product-related" class="input-label">Product Related Pages Visited</label>
+                            <input type="number" id="input-product-related" min="0" max="800" value="28" class="custom-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-product-duration" class="input-label">Product Related Duration (Seconds)</label>
+                            <input type="number" id="input-product-duration" step="0.1" min="0" max="65000" value="1420.5" class="custom-input" required>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Admin & Info Pages -->
+                    <div class="inputs-row four-cols">
+                        <div class="form-group">
+                            <label for="input-admin" class="input-label">Admin Pages</label>
+                            <input type="number" id="input-admin" min="0" max="50" value="3" class="custom-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-admin-dur" class="input-label">Admin Duration (s)</label>
+                            <input type="number" id="input-admin-dur" step="0.1" min="0" value="72.0" class="custom-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-info" class="input-label">Info Pages</label>
+                            <input type="number" id="input-info" min="0" max="50" value="1" class="custom-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-info-dur" class="input-label">Info Duration (s)</label>
+                            <input type="number" id="input-info-dur" step="0.1" min="0" value="18.5" class="custom-input">
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Categorical Attributes -->
+                    <div class="inputs-row three-cols">
+                        <div class="form-group">
+                            <label for="input-month" class="input-label">Browsing Month</label>
+                            <select id="input-month" class="custom-select">
+                                <option value="Feb">February</option>
+                                <option value="Mar">March</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="Jul">July</option>
+                                <option value="Aug">August</option>
+                                <option value="Sep">September</option>
+                                <option value="Oct">October</option>
+                                <option value="Nov" selected>November (Peak Season)</option>
+                                <option value="Dec">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-visitor-type" class="input-label">Visitor Type</label>
+                            <select id="input-visitor-type" class="custom-select">
+                                <option value="Returning_Visitor" selected>Returning Visitor</option>
+                                <option value="New_Visitor">New Visitor</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-weekend" class="input-label">Is Weekend?</label>
+                            <select id="input-weekend" class="custom-select">
+                                <option value="false" selected>No (Weekday)</option>
+                                <option value="true">Yes (Weekend)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden technical attributes with realistic defaults -->
+                    <input type="hidden" id="input-special-day" value="0.0">
+                    <input type="hidden" id="input-os" value="2">
+                    <input type="hidden" id="input-browser" value="2">
+                    <input type="hidden" id="input-region" value="1">
+                    <input type="hidden" id="input-traffic" value="2">
+
+                    <button type="submit" class="btn btn-primary btn-submit" id="btn-predict-now">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        Run Intention Prediction
+                    </button>
+                </div>
+
+                <!-- Result Display Panel -->
+                <div class="prediction-result-panel" id="result-panel">
+                    <div class="result-placeholder" id="placeholder-box">
+                        <div class="pulse-ring"></div>
+                        <div class="placeholder-icon">🔮</div>
+                        <h3>Awaiting Session Data</h3>
+                        <p>Fill out the browsing parameters or choose a preset and click <b>Run Intention Prediction</b>.</p>
+                    </div>
+
+                    <div class="result-card hidden" id="output-box">
+                        <div class="verdict-header">
+                            <span class="verdict-badge" id="badge-verdict">PURCHASE LIKELY</span>
+                            <span class="engine-tag" id="tag-engine-used">Random Forest</span>
+                        </div>
+
+                        <div class="score-container">
+                            <div class="score-circle" id="score-circle">
+                                <span class="score-number" id="text-score">84.2%</span>
+                                <span class="score-sub">Purchase Probability</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar-wrap">
+                            <div class="progress-fill" id="progress-bar-fill" style="width: 84.2%;"></div>
+                        </div>
+
+                        <div class="verdict-summary">
+                            <h4 id="verdict-heading">High Purchase Propensity Detected</h4>
+                            <p id="verdict-description">
+                                The visitor demonstrates high page engagement and strong PageValues indicators, signaling clear transactional intent.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-box" id="recommendation-box">
+                            <strong>Recommended Action:</strong>
+                            <span id="recommendation-text">Show targeted checkout offer or express payment button.</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Predicting Online Shoppers Purchasing Intention • Built with Scikit-Learn, XGBoost, and Python</p>
+            <p class="copyright">Benchmarked against UCI Machine Learning Repository Dataset & Results.pdf</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

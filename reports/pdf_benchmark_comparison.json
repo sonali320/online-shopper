@@ -1,0 +1,269 @@
+{
+  "Logistic Regression": {
+    "metrics": {
+      "accuracy": 87.10462287104623,
+      "true_positives": 493,
+      "true_negatives": 2729,
+      "false_positives": 348,
+      "false_negatives": 129,
+      "sensitivity": 79.2604501607717,
+      "specificity": 88.69028274293143,
+      "cv_mean_accuracy": 87.60273912859692,
+      "cv_std_accuracy": 0.5240291513498107,
+      "confusion_matrix": [
+        [
+          2729,
+          348
+        ],
+        [
+          129,
+          493
+        ]
+      ]
+    },
+    "comparison": {
+      "accuracy": {
+        "label": "Accuracy (%)",
+        "reproduced": 87.10462287104623,
+        "pdf_benchmark": 87.08,
+        "difference": 0.024622871046233286,
+        "status": "PASS"
+      },
+      "true_positives": {
+        "label": "True Positives",
+        "reproduced": 493,
+        "pdf_benchmark": 493,
+        "difference": 0,
+        "status": "PASS"
+      },
+      "true_negatives": {
+        "label": "True Negatives",
+        "reproduced": 2729,
+        "pdf_benchmark": 2728,
+        "difference": 1,
+        "status": "DIFF"
+      },
+      "false_positives": {
+        "label": "False Positives",
+        "reproduced": 348,
+        "pdf_benchmark": 349,
+        "difference": -1,
+        "status": "DIFF"
+      },
+      "false_negatives": {
+        "label": "False Negatives",
+        "reproduced": 129,
+        "pdf_benchmark": 129,
+        "difference": 0,
+        "status": "PASS"
+      },
+      "sensitivity": {
+        "label": "Sensitivity (%)",
+        "reproduced": 79.2604501607717,
+        "pdf_benchmark": 79.26,
+        "difference": 0.0004501607716917988,
+        "status": "PASS"
+      },
+      "specificity": {
+        "label": "Specificity (%)",
+        "reproduced": 88.69028274293143,
+        "pdf_benchmark": 88.66,
+        "difference": 0.030282742931433404,
+        "status": "PASS"
+      },
+      "cv_mean_accuracy": {
+        "label": "CV Mean Accuracy (%)",
+        "reproduced": 87.60273912859692,
+        "pdf_benchmark": 87.6,
+        "difference": 0.0027391285969287082,
+        "status": "PASS"
+      },
+      "cv_std_accuracy": {
+        "label": "CV Std Dev (%)",
+        "reproduced": 0.5240291513498107,
+        "pdf_benchmark": 0.52,
+        "difference": 0.0040291513498106335,
+        "status": "PASS"
+      }
+    },
+    "selected_features_count": 28
+  },
+  "Random Forest": {
+    "metrics": {
+      "accuracy": 88.59151121924845,
+      "true_positives": 450,
+      "true_negatives": 2827,
+      "false_positives": 250,
+      "false_negatives": 172,
+      "sensitivity": 72.34726688102894,
+      "specificity": 91.875203119922,
+      "cv_mean_accuracy": 89.14366670446411,
+      "cv_std_accuracy": 0.5573046575660527,
+      "confusion_matrix": [
+        [
+          2827,
+          250
+        ],
+        [
+          172,
+          450
+        ]
+      ]
+    },
+    "comparison": {
+      "accuracy": {
+        "label": "Accuracy (%)",
+        "reproduced": 88.59151121924845,
+        "pdf_benchmark": 89.19,
+        "difference": -0.598488780751552,
+        "status": "PASS"
+      },
+      "true_positives": {
+        "label": "True Positives",
+        "reproduced": 450,
+        "pdf_benchmark": 342,
+        "difference": 108,
+        "status": "DIFF"
+      },
+      "true_negatives": {
+        "label": "True Negatives",
+        "reproduced": 2827,
+        "pdf_benchmark": 2957,
+        "difference": -130,
+        "status": "DIFF"
+      },
+      "false_positives": {
+        "label": "False Positives",
+        "reproduced": 250,
+        "pdf_benchmark": 120,
+        "difference": 130,
+        "status": "DIFF"
+      },
+      "false_negatives": {
+        "label": "False Negatives",
+        "reproduced": 172,
+        "pdf_benchmark": 280,
+        "difference": -108,
+        "status": "DIFF"
+      },
+      "sensitivity": {
+        "label": "Sensitivity (%)",
+        "reproduced": 72.34726688102894,
+        "pdf_benchmark": 55.0,
+        "difference": 17.347266881028943,
+        "status": "DIFF"
+      },
+      "specificity": {
+        "label": "Specificity (%)",
+        "reproduced": 91.875203119922,
+        "pdf_benchmark": 96.1,
+        "difference": -4.224796880077989,
+        "status": "DIFF"
+      },
+      "cv_mean_accuracy": {
+        "label": "CV Mean Accuracy (%)",
+        "reproduced": 89.14366670446411,
+        "pdf_benchmark": 90.56,
+        "difference": -1.4163332955358925,
+        "status": "DIFF"
+      },
+      "cv_std_accuracy": {
+        "label": "CV Std Dev (%)",
+        "reproduced": 0.5573046575660527,
+        "pdf_benchmark": 0.34,
+        "difference": 0.21730465756605272,
+        "status": "PASS"
+      }
+    },
+    "selected_features_count": 10
+  },
+  "XGBoost": {
+    "metrics": {
+      "accuracy": 85.50959718842931,
+      "true_positives": 523,
+      "true_negatives": 2640,
+      "false_positives": 437,
+      "false_negatives": 99,
+      "sensitivity": 84.08360128617363,
+      "specificity": 85.79785505362366,
+      "cv_mean_accuracy": 86.53688503966383,
+      "cv_std_accuracy": 0.4619422336707188,
+      "confusion_matrix": [
+        [
+          2640,
+          437
+        ],
+        [
+          99,
+          523
+        ]
+      ]
+    },
+    "comparison": {
+      "accuracy": {
+        "label": "Accuracy (%)",
+        "reproduced": 85.50959718842931,
+        "pdf_benchmark": 87.0,
+        "difference": -1.4904028115706893,
+        "status": "DIFF"
+      },
+      "true_positives": {
+        "label": "True Positives",
+        "reproduced": 523,
+        "pdf_benchmark": 499,
+        "difference": 24,
+        "status": "DIFF"
+      },
+      "true_negatives": {
+        "label": "True Negatives",
+        "reproduced": 2640,
+        "pdf_benchmark": 2719,
+        "difference": -79,
+        "status": "DIFF"
+      },
+      "false_positives": {
+        "label": "False Positives",
+        "reproduced": 437,
+        "pdf_benchmark": 358,
+        "difference": 79,
+        "status": "DIFF"
+      },
+      "false_negatives": {
+        "label": "False Negatives",
+        "reproduced": 99,
+        "pdf_benchmark": 123,
+        "difference": -24,
+        "status": "DIFF"
+      },
+      "sensitivity": {
+        "label": "Sensitivity (%)",
+        "reproduced": 84.08360128617363,
+        "pdf_benchmark": 80.23,
+        "difference": 3.853601286173628,
+        "status": "DIFF"
+      },
+      "specificity": {
+        "label": "Specificity (%)",
+        "reproduced": 85.79785505362366,
+        "pdf_benchmark": 88.37,
+        "difference": -2.5721449463763406,
+        "status": "DIFF"
+      },
+      "cv_mean_accuracy": {
+        "label": "CV Mean Accuracy (%)",
+        "reproduced": 86.53688503966383,
+        "pdf_benchmark": 87.7,
+        "difference": -1.1631149603361735,
+        "status": "DIFF"
+      },
+      "cv_std_accuracy": {
+        "label": "CV Std Dev (%)",
+        "reproduced": 0.4619422336707188,
+        "pdf_benchmark": 0.58,
+        "difference": -0.11805776632928117,
+        "status": "PASS"
+      }
+    },
+    "selected_features_count": 19
+  }
+}
